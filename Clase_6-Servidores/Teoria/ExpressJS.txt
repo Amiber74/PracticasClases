@@ -1,0 +1,42 @@
+Express Js
+    framework minimalista que permitira desarrollar servidores mas complejos.
+    
+Nos facilita:
+Utilizar diferentes rutas para las apeticiones
+Mejorar la estructura de nuestro proyecto
+Manejar funcionalidades mas complejas y utilizacion de middlewares 
+
+Crear un proyecto con Express Js
+    1. nmp init -y (Crea un package.json de forma automatica) 
+    2. npm install express (se creara una carpeta node_modules)
+    3. Se crea una carpeta src, dentro se crea un archivo app.js y se impora la dependencia express js 
+
+Act 
+    .Estructurar un servidor basado en express, el cual escuhce peticiones .en el puerto 8080
+    .Realizar una funcion para el metodo GET en la ruta '/saludo, el cual respondera con "¡Hola a todos, pero ahora desde express!"
+    .Ejecutar con nodemon y probar en el navegador el endpoint generado
+
+
+
+Objeto Request 
+    Tres propiedades:
+        _req.query
+        _req.params
+        _req.body
+    
+Req.params:
+    _se utiliza cuando se necesita obtener elementos dinamicos desde la ruta que esta llamanado el cliente.
+    _Para definir un parametro dentro de la ruta a trabajar, se debe colocar ":" antes del parametro para que express reconozca que queremos que sea un elemento dinamico. 
+
+Req.query:
+    _Query se refiere a las multiples consultas que se pueden hacer un determinado endpoint, bast con que en la url coloquemos el simbolo "?"
+    _Cuando buscamos algo de nuestro navegador, llamamos a un endpoint haciendo un determinado query.
+
+    Conforme incrementa el dinamismo en las urls, es importqante configurar el servido para que reciba datos complejos desde la url, por ello hay que utilizar la linea:
+        app.use(express.urlencoded({extend:true}))
+    La linea anterior permitira que el servidor pueda interpretar mejor los datos complejos que viajen desde la url, y mapearlos correctamente en el req.query
+     
+DIFERENCIAS ENTRE QUERY Y PARAMS
+
+    _La diferencia es que el query, tomaria la cantidad de elementos que nosotros queramos, en cambio el paramas toma el valor de la ruta
+    _Si desconozco el numero de cosas que se va a consultar en la ruta, la mejornopcion seria usar queries, en cambio, si necesitamos un numero especifico de elementos usamos params

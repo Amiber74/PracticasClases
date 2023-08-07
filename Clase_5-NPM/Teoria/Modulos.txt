@@ -24,3 +24,7 @@ Actividad ../Practicas/UserManager.json
         }
     Guardar el usuario en un archivo Usuarios.json
     Tener en cuenta que la contraseña debe estar hasheada por seguridad
+
+    
+QUE ES NPM?
+    Node Package Manager 

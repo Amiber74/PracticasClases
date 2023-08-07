@@ -1,0 +1,25 @@
+    HTTP vs HTTPS
+
+http (Hyper Text Transfer Protocol):
+    protocolo el cual es un conjunto de reglas que permite la comunicacion entre dos o mas sistemas. Las computadores se comunican entre si y con servidores para obtecion de datos.
+
+[http] es una conexion segura entre cliente y servidor
+[https] en una conexion encriptada entre cliente y servidor
+
+Como funciona?
+Modelo de peticion - respuesta
+Se tiene que hacer una peticion de informacion, entonces el servidor se encarga de responder con dicha informacion
+
+Que tipo de informacion?
+    Datos como un nombre, fehca, edad
+    Informacion mas compleja como una imagen o un video
+    Un archivo para descargar
+    Una pagina web completa
+
+Multiples peticiones:
+    Cuando programamos nuestro servidor, lo hacemos para escuchar peticiones, la preguna es: ¿de quien escuchar las peticiones?
+
+    Bajo su configuracion por defecto, un servidor puede escuchar multiples peticiones de múltiples clientes al mismo tiempo.
+
+Importante
+    El cleinte es quien siempre hacer la peticion (request) y el servidor siempre sera quien hace las respuestas (response). Cuando hacemos Front end, somos clientes. En este curso te tocara ser el servidor y devolver respuestas
