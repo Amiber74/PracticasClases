@@ -1,0 +1,26 @@
+Modulos Nativos: 
+    _Fs [Manejo de archivo] Sirve para manejar otro modelo de persistencia
+    _Crypto [operaciones de encriptado y cifrado] Sirve para mejorar la seguridad de datos
+    _Http [ Crear servidores basicos bajo el protocolo http] Sirve para crear nuestro primer servidor solicitud/respuesta
+    _Path [manejo correcto de rutas ] Sirve para evitar ambiguedad al trabajar con rutas
+
+
+Actividad ../Practicas/UserManager.json
+ clase UserManager :
+    guardar usuarios en un archivo.
+    El usuario recibe una contraseña como string plano 
+    Se debe guardar la contraseña hasheada con crypto 
+    Utilizar nativos fs y crypto
+    Metodos:
+        Crear usuario {
+            nombre, 
+            apellido
+            nombre de usuario,
+            contraseña,
+        }
+        Validar usuario (nombre de usuario, contraseña,){
+            debe leer el json previamente generado con el arreglo de usuario y hacer comparacion de contraseñas.
+            Si coincide el usuario y la contraseña, devolver un mensaje 'logueado' caso contrario indicar el erro usuario y/o contraseña inexistene
+        }
+    Guardar el usuario en un archivo Usuarios.json
+    Tener en cuenta que la contraseña debe estar hasheada por seguridad
