@@ -1,0 +1,20 @@
+
+ROUTER:
+    _Router nos sirve para no tener muchas rutas "iguales" donce la diferencia era el metodo, por ende el codigo se vuelve engorroso.
+
+    _Un router en express nos permite separa endpoints comunes en entidades separadas que se generaran como "mini aplicaciones". 
+    Tomaran peticiones que coincidan con el endpoint y asi resdireccionarlo a la mini aplicacion.
+    Por ende el codigo resultara mas ogranizado, y las diferentes entidades quedaran aisladadas de acuerdo a su comportamiento interno.
+
+Aplicar Router:
+    _Con la misma estructura de nuestro coidgo nmormal. Es decir una carpeta llamada "node_modules", otra carpeta llamada "src" con la app.js y los package.json/package-lock.json
+
+    _Dentro de "src" agregaremos una carpeta "routes" donde ubicar emos a nuestros diferentes routers
+
+    _Para agregar un router a nuestra nueva carpeta se debe colocar lo siguiente:
+        import {Router} from 'express'
+        const router = Router()
+        router.get('/',(req,res)=>{
+            //Cuerpo del servicio para GET
+        })
+        export defult router 

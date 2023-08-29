@@ -1,0 +1,19 @@
+Como funcionan los archivos estaticos?
+    _Nuestro servidor tiene la posibilidad de alojar recursos que peuden ser visibles para el cliente de manera directa.
+    _Podemos configurrar una carpeta para que el usuario pueda acceder y ver dichos recursos de manera directa solo con accceder a la ruta donde se encuentra ubicada.
+    _Podras encontrar estos archivos en la carpeta "public", haciendo referencia a recursos publicos de facil accesos para el cliente
+
+Cuando utilizarlos?
+    _Cuando debemos alojar imagenes y servirlas cirectamnete al cliente-
+    _Cuando necesitemos alojar una pagina web.
+
+Convertir una carpeta en un recurso estatico?
+    _Para usar los recursos de una carpeta de manera estatica, hay que especificarla al servido con la siguiente linea de sintaxis:
+        [   app.use(express.static('public'))    ]
+        Con esta linea indicamos que todo lo que este dentro de la linea public podra ser accedido directamente desde la carpeta public.
+
+PATH absoluto:
+
+    _El path se proporciona a la funcion express.static es relativo al directorio desde donde inica el proceso node.
+    Es mas seguro utilizar path absoluto del directorio al que desea dar servicio :
+        [   app.use('/static', express.static(__dirname + '/public'))    ]

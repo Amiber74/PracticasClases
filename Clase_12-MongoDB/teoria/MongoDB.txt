@@ -1,0 +1,30 @@
+Vuelve el probelma de la persistencia: archivos
+    Hasta este punto de lcurso. hemos trabajado con un fileSystem (Sistema de archivos) para hacer nuestro almacenamientos principales
+    
+    Sin embargo, sabemos claramente que hay algunos problemas con el uso de archivos:
+        _Tener que actualizar todo el archivo cuando hacemos un cambio.
+        _Tener que leer todo el archivo cuando buscamos algún dato.
+        _Sin proteccion al momento de querer mover o modificar algo.
+
+    Necesidad del Cambio:
+        Talvez hasta el momento no notamos nigun problema, pero cuando comenzamos a trabajar con cientoss, miles o millones de datos, realmente nos encontramos con un enorme problema de perfomance.
+
+        Es por eso que comenzo a buscarse una solucion mas optima para trabajar con grandes volumenes de datos: surgieron las bases de datos.
+
+        Bases de Datos:
+            Es una recopilacion organizada de datos. Dichos datos deben compartir algún contexto y son almacenados con poder de convertirse posteriormente en informacion util para utilizarse dentro de algún Sistema. 
+
+            Se encarga de almacenar dichos datos.
+
+        Util?
+            almacenamiento Util:
+                Los datos que viven en una base de datos no son modificables directamente, por lo que éstos no pueden ser cambiados facilmente.
+
+            Segmentacion de datos:
+                Podemos separar los datos en 'contextos', permitiendo asi tener separado los datos de interes.
+                {Separar productos exitentes de productos fuera de stock; Separar distintos usuarios por genero, plan, nacionalidad, etc}
+
+            Gestion sencilla una vez configurada:
+                Una vez que hemos definido los esquemas principales de nuestra base de datos, podremos realizar operaciones sobre estos datos como:
+                    {Filtrar; Ordenar; Buscar dato especifico; Actualizar conjunto de datos sin afectar o tocar otros datos}     
+    

@@ -1,0 +1,22 @@
+<form action="http://localhost:8080/post" method="post">  
+
+    <input type="text" name="name" id="name">
+    <br>
+    <input type="email" name="email" id="email">
+    <br>
+    <input type="password" name="pass" id="pass">
+    <br>
+    <input type="submit" value="Enviar">
+</form>
+
+    <hr>
+<div>
+    <h1>Usuarios:</h1>
+    {{#each users}}
+    <P>nombre: {{this.name}} </P>
+    <P>email: {{this.email}} </P>
+    <P>contraseña: {{this.pass}} </P>
+    <hr>
+
+    {{/each}}
+</div>

@@ -1,0 +1,15 @@
+MOTOR DE PLANTILLAS: 
+    .Uno de los problemas del desarrollo web es el dinamismo.
+    .Principales motores de pLANTILLAS: 
+        _Handlebars. (Se usara en el curso)
+        _Ejs.
+        _PugJS.
+    
+    Aclaracion:
+        _El motor de plantillas no son lo mismo que una libreria o un framework
+    
+    Que elegir segun el nivel de dinamismo:
+        _Para Landing Pages. donde el dinamismo es casi nulo, podemos utilizar javascript puro
+        _Para Website comenzamos a viajar por diferentes paginas, tal vez nos interesa mostrar algunos productos para catalogo. Entonces estamos hablando de un aumento en el dinamismo, en este caso usariamos un motor de plantillas.
+        _En una webapp usariamos un nivel de dinamismo mas fuerte de la web, aca actua un framework como React para aprovechar el virtual DOM para la perfomance 
+        

@@ -1,0 +1,32 @@
+Web Socket:
+    _Es un protocolo de comunicacion basado en TCP para poder establecer una conexion entre cliente y servidor, igual que hace el protocolo HTTP
+    
+    Que hace para que destaque:
+        _Tiene dos endpoint de comunicacion, y a cada endpoint se les conoce como Socket:
+        _Al tener dos endpoint permititra tener una comunicacion bidireccional, entre cliente y el servidor.
+            Esto permite que el cliente obtenga recursos del servidor cuando lo solicite.
+            Que el servidor pueda entrergar informacion sin que el cliente haga una peticion.
+    
+    Caso Practico:
+        _Subasta en linea
+        Primer intento: HTTP Long Polling
+            Consiste en que el cliente vuelva a ahcer una peticion tan pronto como reciba una respuesta del servidor, es decir, bombardear al servidor constantemente de peticiones para emular respuestas 'en tiempo real'
+        Solucion Optima: WebSockets:
+            El cliente no tendra que actulaizar constantemente la pagina.
+            Cuando el servidor reciba una actulaizacion por parte de un cliente, se actualizara a todos los clientes conectados. Dando asi informacion Real.
+
+    Funcionamiento de un Web Socket:
+        _Primero el cliente manda una solicitud llamada Handshake ("Apreton de mano"), este mismo sera un 'acuerdo' o 'contrato' de confianza para que el servidor pueda actualizar al cliente sin que este lo pida.
+        _El servidor recibe la peticion de Handshake y procede a "Responder el saludo", a esto  se le llama "Abrir conexion".
+        _A partir de esto, el canal qued abierto de manera bidireccional, por lo que el cliente se puede comunicar cuando quiera y viceversa.
+        _La comunicacion es "persistente" hasta que alguno de los dos lados decida cerrar el canal de comunicacion. El servidor puede cerrarlo despues de un "Timepo de conexion" y asi ahorrar recursos.
+
+    Protocolo WebSockets:
+        _Logro por primera vez acceder a una Web de forma dinamica en tiempo real.
+        _El requisito es que el cliente establezca una conexion con el servidor.
+        _El cliente envia al servidor todos los datos de identificacion necesarios para el intercambio de informacion. 
+
+        Principios:
+            El canal de comunicacion queda abierto tras el Handshake.
+            El servidor puede activarse a si mismo y poner toda la informacion a disposicion del clientesin recibir una peticion y si tiene nueva informacion se lo hara a saber al cliente sin necesidad de recibi una solicitud.
+            Las notificaciones push se basan en este Principio.

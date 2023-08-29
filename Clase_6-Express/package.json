@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "name": "clase_6-servidores",
+  "version": "1.0.0",
+  "description": "",
+  "main": "a.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./Ejemplos-Vivo/ActParams.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

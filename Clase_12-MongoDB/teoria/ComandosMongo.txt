@@ -1,0 +1,16 @@
+Comandos:
+    show dbs => Mostrara la lista de bases de datos que tengamos activas
+
+    use <nombre> => Crea una nueva base de datos (si no existe) y se posiciona en ella para usarla
+
+    db.createCollection('nombre') => crea nuestra primera coleccino para comenzar a ingresar documentos
+
+    Insertando un dato en la coleccion "usuarios":
+        Una vez que sabemos que coleccino vamos a utilizar, utilizaremos el comando "insertOne", pasando el objeto que queremos guardar en dicha coleccion
+            Ej:
+                db.usuarios.insertOne({name:"Facundo", last_name:"Gonzalez", age:21, email:"a@b.com"})
+
+    Leyendo informacion de la base de datos:
+        Utilizano la misma sintaxis de un objeto o una clase de javascript, leemos la coleccion con el metodo find()
+            Ej:
+                db.usuarios.find() 

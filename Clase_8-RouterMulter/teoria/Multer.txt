@@ -1,0 +1,8 @@
+
+Multer:
+    _Es un middleware de terceros, pensado para cargar archivo al servidor.
+    _Sirve para que le cliente suba iamgenes, videos o un archivo segun sea la aplicacion.
+
+    Instalacion:
+        1. npm install multer
+        2. 

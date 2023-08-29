@@ -1,0 +1,21 @@
+<form action="http://localhost:8080/" method="post">
+    <input type="text" name="name" id="name">
+    <input type="text" name="message" id="message">
+    <input type="submit" value="Enviar">
+</form>
+<hr>
+
+<h1>chat</h1>
+
+{{#each ChatOnline}}
+
+    <div>
+        <h3>nombre: {{this.name}}</h3>
+        <p> mensaje: {{this.message}} </p>
+        <hr>
+    </div>
+
+{{/each}}
+
+<script src="/socket.io/socket.io.js"></script> {{!-- Antes que el script propio --}}
+<script src="/js/index.js"></script>

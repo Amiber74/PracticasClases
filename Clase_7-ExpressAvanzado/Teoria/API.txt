@@ -1,0 +1,37 @@
+Comprendiendo una API
+    API (Application Programming Interface)
+    Conjunto de definiciones y reglas que permiten que dos equipos puedan integrarse para trabajar juntos. La mejor analogia que hay para comprender una api, es que ser parece a un "contrato" entre el front y el back 
+
+    La API permite responder preguntas como:
+        _A que endpoint debo apuntar para la tarea que necesito?
+        _Que metodo debo utilizar para ese recurso?
+        _QUe informacion debo enviar para realziar correctamente mi peticion?
+
+    ETAPAS:
+        _Peticion: el Cliente solicita informacion y dicha solicitud (peticion) la recibe la API. Para que la peticion llegue correctamente debe apuntar al endpoint correcto, con la informacion correcta.
+        _Procesamiento: el servidor de la API procesara la peiticion solamente si se cumplieron todas las especificaciones de la API. 
+        _Resultado: la API envia un resultado al finalizar el procesamiento correctamente.
+        _Respuesta: el cliente al cumplir con las especificaciones que necesitaba la API podra recibir la informacion que solicito con anterioridad.
+
+    REST:
+        _Cuando hacemos una peticion o recibimos una respuesta, debe tener un formato. REST (REpresentational State Transfer) permite definir la estructura que deben tener los datos para transferirse
+        _La API responde sobre como comunicarse correctamente, sin embargo REST define como debe ser el cuerpo del mensaje a transmitir. 
+
+    Los dos formatos mas importantes son JSON y XML. La ujtilizacion de la estructura dependera de las necesidades del proyecto. Nosotros utilizaremos JSON. Un JSON parece un objeto
+
+    API REST:
+        _Modelo completo apar tener perfectamente estipuladas los protocolos, las reglas e incluso la estructura de informacion, con el fin de poder hacer un sistema de comunicacion completo entre las computadoras.
+
+    Modelo de una Api rest:
+        _Se envia una peticion (get, post, put , delete)
+        _Los servidores de la API reciben el http request
+        _Los servidores devuelven a la API un http response
+        _El cliente recibe una respuesta en formato JSON, XML, HTML
+
+    Caracteristicas:
+        _Arquitectura Cliente-servidor sin estado (Cada mensaje http contiene toda la indormacion neces1aria para su comprension y asi el cliente y servidor no deben recordar ninguna estado de la comunicacion)
+        _Cacheable (Debe admitir un sistema cache, debe admitir un cache de varios niveles. Evitar repetir varias conexiones internas)
+        _Operacines Comunes (Todos los recursos deetras de nuestras APIs deben consumirse mediante peticiones HTTP. con frecuencia estas operaciones se equiparan a las operciones CRUD en bases de datos.)
+        _Interfaz Uniforme ( el sistema REST debe contar con una URI [Uniform Resource Identifier], Nos facilita el acceso a informacion)
+        _Utilizacion de Hipermedios (Las respuestas tienen una parte que son hipervinculos de navegacion asociado a otros recursos del cliente)
+          

@@ -1,0 +1,42 @@
+Handlebars:
+    _Motor de plantillas pensado para agregar nivel medio de dinamismo a nuestra pagina web
+    _Pre procesa el html que queramos renderizxar, reconociendo el patron {{ variable }}.
+    _No esta pensado para elementos de cambios cosntante, debido a que los cambios se necestia un rederizado completo del DOM.
+
+    Instalacion:
+        1.Preparar la estructura de la carpeta como lo hemos armado anteriormente
+
+        2.Agregar una carpeta Views (Mismo nivel que public) donde se colocaran todas las plantillas que queramos utilizar. Es decir que se colocaran las paginas a utilizar en el proyecto. 
+        Pero se necesita un marco inicial para colocar las plantaillas , una carpeta llamada "Layouts". Al nivel de  Layouts se colocara un archivo llamado "index.handlebars"
+
+        3. Dentro de la carpeta Layout se creara un archivo "main.handlebars". Dentro del body se le colocara 
+        "{{{body}}}", esto es asi para que cada vista de views que se renderice se ejecute dentro del body.
+
+        4. Crear un saludo desde index, como lo que escribamos se rederizara dentro de una pagina (en el body del main), solo se escribiria el bloque
+
+        5. Instalar handlebars [ npm install express express-handlebars ]
+        
+        6.Configurar handlebars en nuestro motor express
+
+    ESTRUCTURAS DE CONTROL: 
+        _Las plantillas no solo nos pérmiten reemplazar valores, Handlebars nos permite la capcacidad de usar estructuras de deicison.
+        _Usaremos la estructura con el simbolo # dentro de las llaves:
+            ej: {{#if condicion}} Admite condiciones booleanas
+        _Tambien se permite realizar ciclos usando la palabra clave 'each'
+            ej: {{#each elemento iterable}}
+
+
+    EXPRESS ROUTER + HANDLEBARS:
+        _Logica de vistas de un router: 
+            -Una fomra d e trabajr correctamente con las plantillas, conforme crece nuestro sitio web es colocar las vistas como si fuesen routes.
+            -Una diferencia es que los routes responde al comando res.send y las plantillas respondes a un 
+            res.ender
+            -Este router se colocara en la ruta raiz '/' y no sera necesaria ser precedido por /api como los demas (NO seria un servicio interno solo es una vista que accede nuestra base)
+
+    AGREGANDO JS Y CSS:
+        _Dentro de la carpeta public nos ayudara para servir archivos estaticos para usarlos en vistas
+        _Los scripts irian en cada archivo como un script.
+        _Los sstilos irian en el head del main. 
+        _Cada vez que necesitemos mostrar una vista, dicha vista debera estar aociada con un cdd, el cual siempre se colocara con el nombre 'style'. [Siempre el style debe tener el mismo nombre del archivo, inclutyendo su extension]
+        
+    

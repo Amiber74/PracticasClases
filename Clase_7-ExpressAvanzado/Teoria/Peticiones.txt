@@ -1,0 +1,41 @@
+IMPORTANTE:
+    Para que nuestro servidor express pueda interpretar en forma automatica menssajes de tipo JSON en formato urlencoded al recibirlos, debemos indicarlo de forma explicita, agregando las siguientes lineas luego de crearlo:
+        app.use(express.json())
+        app.use(express.urlencoded({extended:true}))
+
+
+Metodos de Peticion:
+    _GET: obtener un recurso
+    _PUT: Modificar un recurso
+    _POST:Crear o añadir un recurso
+    _DELETE: Eliminar un recurso
+
+    Declarar correctamente un Endpoint:
+        Forma correcta: GET api/perritos
+                        GET api/perritos/:pid
+                        POST api/perritos
+                        PUT api/perritos/:pid
+                        DELETE api/perritos
+
+        Forma incorrecta:   GET api/perritos/obtener
+                            GET api/perritos/obtener/:pid
+                            POST api/perritos/añadir
+                            PUT api/perritos/actualizar/:pid
+                            DELETE api/perritos/eliminar  
+
+    Metodo POST: 
+        _Sirve para "crear recursos", se usa para operaciones donde se añade un recurso. Casos en los que se usan:
+            -Registrar un usuario
+            -Loguear un usuario
+            -Crear un producto
+            -Crear una mascota
+            -Crear un carrito de compra
+            -Enviar informacion par un correo electronico
+        _Se apoya del recurso req.body, donde el body representa la inofrmacion que el envia para crear.
+
+    Metodo PUT:
+        _Sirve para modificar recursos. No solo enviamos el body en el request, sinon que tambien mandamos por params el id, nombre o cualquier identificador para que el servidor sepa que recurso especificamente debe actualizar.
+        _Dos formas: campos especificos o el elemento completo
+
+    Metodo DELETE:
+        _ No es necesario enviar informacion en el body, pero si es necesario en el req.params el identificador para que el servidor sepa que recurso eliminar 

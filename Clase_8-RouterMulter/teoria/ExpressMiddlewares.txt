@@ -1,0 +1,18 @@
+Que es un middleware?
+    _Cada vez que usamos app.use estamos utilizando un middleware. Estas operaciones se ejecutan de manera intermedia entre la peticion del cliente y el serviciode nuestro servidor.
+    _Middleware hace de referencia a un intermedio. simpre se ejecuta antes de llegar al endpoint que corresponde.
+
+    Usos:
+        -Dar infomracion sobre consultas que se hacen. (logs)
+        -Autorizar o rechazar usuarios antes que lleguen al endpoint (seguridad)
+        -Agregaar o alterar informaciona al metodo req  (su formato)
+        -Redireccionar segun sea necesario (router)
+        -Finalizar la peticion sin que llegue el endpoint, a veces (seguridad)
+
+     Tipos:
+        - Middleware a nivel de aplicacion.
+        - Middleware a nivel de endpoint.
+        - Middleware a nivel del router.
+        - Middleware de manejo de errores.
+        - Middleware incorporado.
+        - Middleware de terceros.

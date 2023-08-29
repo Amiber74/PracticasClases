@@ -1,0 +1,16 @@
+Codigo de estado en http
+
+    Cuando realizamos una peticion al servidor mediante protocolo HTTP, el servidor a parte de responder con informacion tambien deberia responder con estado del proceso.
+
+    Como funciona?
+        Cuando el servidor responde con un codigo de estado, esto permite saber que ocurrio con la consulta que estabamos haciendo, y da informacion al cliente sobre que ha ocurrido.
+
+        Codigos: 
+            1xx informacion
+            2xx Success
+            3xx Redirection
+            4xx Client error
+            5xx Server error 
+
+    Importante:
+        vos sos el desarrollador del servidor, entonces es tu re4sponsabilidad reconocer cuando colocar cada codigo de status. Si no configuramos nuestro servidor para devolver multiples status, entonces sera mucho mas dificil rastrear los problemas

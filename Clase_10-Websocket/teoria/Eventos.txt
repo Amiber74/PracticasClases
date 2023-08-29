@@ -1,0 +1,20 @@
+Eventos en socket:
+    Estructura:
+        socket.on('nombre_Evento', data =>{
+            callback con la data enviada
+        })
+    
+        Envio de informacion desde el cliente hacia el servidor con emit:
+            _Ahora el servidor esta escuchando por un evento de ID "message". pero no hemos enseñado a nuestro cliente a comunicarse con el servidor.
+            _Para eso usamos la palabra emit, el cual debe contar con el ID del mensaje a enviar, segui del contenido de dicho mensaje.
+            _Los IDs deben coincidir para que el mensaje llegue correctamente.
+            El siguiente fragmento se escribiria en index.js
+                [ socket.emit('message', 'Hola, me comunico desde websocket') ]
+
+            Tres formas de hacerlo:
+                _socket.emit('evento_individual', "El mensaje solo lo puede recibir el socket")
+
+                _socket.broadcast.emit('evento para todos menos para el socket actual',"El mensaje lo veran todos los sockets conectados menos el que envio esta informacion")
+
+                _socketServer.emit('evento para todos',"El mensaje lo recibira todos los sockets conectados")
+                

@@ -1,0 +1,34 @@
+Socket.io:
+    _Biblioteca de Javascript para poder implementar los sockets ya mencionados.
+    _Se instancia tanto de lado del cliente como el servidor.
+    _Permite utilizar todo el potencial mencionado de los websockets, y cuenta con una API casi identica para el cliente y el servidor.
+
+    Caracteristica:
+        _Utiliza el protocolo websocket proporcionando la misma interfaz.
+        _Se puede usar como un contenedor para Websocket aunque proporciona muchas mas funciones, incluida la transmision de multiples sockets, el almacenamiento de datos asociados con cada cliente asincronia.
+        _Se instala con npm.
+
+        _Flexibilidad: las conexiones se establecen incluso en presencia de:
+            Proxies y balanceadores de carga.
+            Firewall personal y software antivirus.
+
+        _Soporte de reconexion automatica: A menos que se le indique lo contrario, un cliente desconectado intentara siempre volver a conectarse, hasta que el servidor vuelva a estar dispoonible.
+
+        _Deteccion de desconexion: Se implementa un mecanismo de heartbeat, lo que permite que tanto el servidor como el cliente sepan cuando el otro ya no responde.
+        
+        _Soporte bianrio: se puede emitir cualquier estructura de datos serializable:
+            ArrayBuffer y Blob en el navegador
+            ArrayBuffer y Buffer en Node.js
+
+    Insatalacion:
+        1. Tener listo un servidor con express.
+        2. Realizar la instalacion [ npm install express express-handlebars socket.io ]
+        3. Configfurar nuestro servidor express con handlebars + socket.io : app.js
+        4.Agregamos js a la carpeta public y a nuestro index.handlebars
+        5. Levantar el socket del lado del cliente [index.js]
+
+    Configuracion y uso del socket del lado del servidor:
+        _El cliente y el servidor deben estar ligados. Lo que nos falta es enseñarle a nuestro servido a escuchar el handshake por parte del cliente, para ello tenemos nuestro socketServer (Normalmente se le llama "io" pero lo usaremos com osocketServer para mayor entendimiento)
+        _Tomaremos nuestro socketServer y lo pondremos a "escuchar una conexion". UN avez que un socket se conecte, podemos reconocerlo y tomar alguna accion a partir de ello
+
+        Usar socketServer.on para escuchar la conexion de un nuevo socket

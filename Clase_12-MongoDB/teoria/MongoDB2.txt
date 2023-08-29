@@ -1,0 +1,38 @@
+MongoDB:
+    _Base de datos no relacional orientada a documentos.
+    _En lugar de tablas, opta por utilizar colecciones.
+    _Cada documento que ingresamos a una coleccion puede tener diferente estructura.
+    _Puede utilizarse en modo local o en la nube.
+
+    Caracteristicas:
+        -> Almacena datos en documentos flexibles similares a JSON: la estructura de datos puede cambiar con el tiempo.
+        -> El modelo de documento se asigna a los objetos en el codigo de su aplicacion para facilitar el trabajo con los datos.
+        -> Las consultas ad hoc, la indexacino y la agregacion en tiempo real ofrecen maneras potentes de acceder a los datos y analizarlos.
+        -> MongoDB es una base de datos distribuida en su nucle, por lo que la alta disponibilidad, la escalabilidad horizontal y la distribución geográfica estan integradas y son faciles de usar.
+        -> MongoDB es de uso gratuito.  
+
+    Estructuracion de Documentos:
+        -> Una de las grandes ventajas de documento es que este se basa en el concepto de clave_valor, esto, como sabrás, se asemeja muchisimo a un objeto como el que has trabajado tanto tiempo un javascript.
+
+        -> No son propiamente un 'Objeto' como para llamarlos de tal forma, sino que MongoDB trabaja con una extension de los archivos conocidos como BSON. Esto es lo que realmente permanece en la base de datos.
+        
+        ->Los esquemas de una base de datos en MongoDB, con ayuda de elementos como mongoose, son facilmente manipulables, ya que permite definirlos con una estructura casi idéntica a la de un objeto.
+
+        Ejemplo: JSON (BSON)
+                {
+                    "nombre": "Facu",
+                    "edad" : 25,
+                    "direccion":
+                        {
+                            "ciudad": "Buenos Aires"
+                        },
+                    "aficiones": [
+                        {"nombre":"Futbol"},
+                        {"nombre": "Esqui"}
+                    ]
+                }
+    INSTALACION:
+        1. Visitar la pagina (https://www.mongodb.com/es) 
+        2. Instalando el Community Server que se encuentra en el apartado de Productos, en la pestaña de Community Edition.
+        3. Seleccionamos nuestro Sistema Operativo.
+        4. Ejecutar instalador con permisos de administrador

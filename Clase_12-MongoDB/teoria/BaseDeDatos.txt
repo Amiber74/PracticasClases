@@ -1,0 +1,45 @@
+Bases de Datos:
+    Necesidad de distintos modelos de bases de datos nos sirve para mantener los datos organizado, toca entender cuando utilizar un modelo relacional o un modelo no racional
+
+    Modelo Relacional:
+        _Refiere a una estructura, relación, dependencia y de cambio controlado.
+
+        -> Modelos de datos donde se requieren estructuras mas firmes y estrictas sobre los datos. Ademas, se utilizan en datos mas controlado.
+            Se basa en tablas, columnas y filas para gestionar sus datos.
+            Permite conectar las tablas a partir de 'relaciones' basadas en llaves primarias y foraneas. 
+
+        Problemas:
+            Cuando las aplicaciones que necesitamos incrementan sus requisitos, los datos cambian mas rapido y son mas complejos, son mas inconsistentes y por lo tanto nuestra base de datos relacional comienza a volverse lenta.
+
+            Solucion: Introducir a un modelo más flexible (No racional)
+                Se desarrolla un modelo donde los datos sean mas flexibles, tanto en estructura, como en asociación. Con el objetico de crear datos pensados para desempeño, no para consistencia inmediata.
+
+    Modelo No Racional:
+        _Refiere a algo menso estructurado, con relaciones y dependencia flexibles, y de cambios sumamente rapidos.
+
+        -> Sirve para datos de control como:
+            {Sistemas bancacarios; Sistema de clima (No atmosferico); Sistema de peliculas}
+        -> Su lenguaje es SQL (Structures Query Language)
+        -> Algunos sistemas SQL son:
+            {PostgreSQL; Oracle; MySQL; MariaDB} 
+
+        La flexibilidad de los datos lo hace considerablemente más rapido en cuanto a su accesibilidad.
+            Puede basarse en:
+                {Clave valor; Documentos; Gráficos; Memoria}
+
+        -> Bases de datos muy utiles para organizar y gestionar informacion no estructurada, o cuando no se tiene una nocion clara de los datos a almacenar.
+        -> Alto grado de escalabilidad y perfomance
+        -> No utiliza SQL como lenguaje
+        -> Algunos sistemas NoSQL son :
+            {MongoDB; Redis; DynamoDB}
+
+    Cuando Usarlos?
+        Modelo Relacional:
+            _ Cuando el volumen de los datos no crece, o bien lo hace poco a poco.
+            _ Cuando las necesidades del proceso pueden atenderse en un solo servidor.
+            _ Cuando no existen picos de uso por parte de los usuarios que tuilizan el sistemas
+
+        Modelo No Relacional:
+            _ Cuando el volumen de los datos crece rápidamente.
+            _ Cuando las necesidades del proceso son tan altas y tan constantes, que se requieren multi servidores.
+            _ Cuando los usuarios saturan el sistema y generan 'Picos de uso'

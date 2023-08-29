@@ -1,0 +1,31 @@
+
+
+    {{!-- 
+    <h1>ACTIVIDAD USERS RANDOM </h1>
+
+    <h2> <b>nombre:{{name}}</b></h2>
+    <h2> <b>apellido:{{LastName}}</b></h2>
+    <h2> <b>edad:{{age}}</b></h2>
+    <h2> <b>correo:{{email}}</b></h2>
+    <h2> <b>telefono:{{h2hone}}</b></h2> 
+    --}}
+
+    {{!-- --------------------------------------------------------- --}}
+
+    <h1>EJEMPLO 1</h1>
+
+    <h1> hola {{user.name}} {{user.lastName}} </h1>
+    {{#if IsAdmin}}
+        {{#each food}}
+            <div>
+                <p> <b> {{this.name}} </b> </p>
+                <p> ${{this.price}} </p>
+            </div>
+        {{/each}}
+    {{else}}
+        <p>No tienes permiso para ver la lista de alimentos</p>
+    {{/if}}
+
+    {{!-- --------------------------------------------------------- --}}
+
+<script src="/src/public/js/index.js"></script>
