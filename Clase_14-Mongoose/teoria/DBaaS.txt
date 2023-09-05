@@ -1,0 +1,47 @@
+DBaaS: (Database as a Service)
+     
+    _Proporciona una base de datos en la nube.
+
+    Problema: (Escalabilidad y factibilidad)
+        -> ¿Qué pasa cuando tu empresa va creciendo y necesitamos almacenar cantidades enormes de información?
+        -> ¿Estamos dispuestos a dedicar cuartos completos con bases de datos?
+        -> ¿Qué tan elevados pueden llegat a ser los costos de tener que comprar infraestructura física para el negocio ¿Vale la pena?
+        ->  ¿Y si hubiera forma de "rentar" dicho espacio a un proveedor, para sólo preocuparme en los aspectos más superficiales de la base de datos?
+
+    Solucion: DBaaS (Database as a Service)
+        -> Utilizar una base de datos como servicio, implica el poder hacer uso de una base de datos, sin preocuparse en tener que gestionar todo el aspecto fisico que este implica, es decir, podemos rentar espacios para poder alojar la informacion de nuestra base de datos.
+        -> Todos los aspectos fisico de mantenimiento y de seguridad de dichas bases, vienen gestionados por el proveedor de dicho servicio.
+        -> Amazon, Google, Microsoft y Mongo Atlas son algunos ejemplos.
+
+        Ventajas: 
+            -> Se elimina la infraestructura fisica.
+            -> Ahorro de costos generalizado.
+            -> Escalabilidad.
+            -> Personal cualificado.
+
+    MongoDB Atlas:
+        
+        Caracteristicas:
+            -> Automatización.
+            -> Flexibilidad.
+            -> Seguridad.
+            -> Escalabilidad.
+            -> Alta disponibilidad.
+            -> Alto rendimiento.
+
+        Ventajas:
+            -> Puesta en marcha en segundos.
+            -> Implementacion replicadas y sin interrupcion.
+            -> Total Escalabilidad, de forma vertical y horizontal.
+            -> Revisiones automatixas y actualizadas.
+
+            -> Autenticacion y cifrado.
+            -> Copias de seguridad con recuperacion temporal.
+            -> Supervision detallasda y alertas personalizadas.
+
+        Configuracion:
+            1. Llenar formulario con los datos.
+            2. Llenar Preguntas
+            3. Seleccionar opción gratuita.
+            4. Configurar Cluster y seteamos el nombre a trabajar.
+

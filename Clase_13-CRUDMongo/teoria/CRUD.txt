@@ -1,0 +1,51 @@
+CRUD:
+    Son las siglas que hace referencia a las cuatro operaciones fundamentales de una base de datos:
+
+    -> C: Create (Crear dato, insertarlo en la base de datos)
+    -> R: Read (Leer un dato, mostrarlo al cliente)
+    -> U: Update (Actualizar un dato, cambiar su informacion interna)
+    -> D: Delete (Eliminar un dato, removerlo de nuestra coleccion)
+
+     
+Comando de apoyo para MongoDB:
+
+    -> show dbs: muestra la bases de datos existentes.
+
+    -> use <db name> : Crea nueva base de datos (Caso de no existir ) y se posiciona en ella.
+
+    -> db: muestra en que base de datos estamos posicionado.
+
+    -> show collections: Muestra todas las colecciones disponibles en la base de datos posicionada.
+
+    -> db.createCollection(name): Crea una coleccion en la base de datos posicionada.
+
+    -> db.dropDatabase(): Elimina la base de datos actual.
+
+    -> db.collection.drop(): Elimina la coleccion de la base de datos posicionada
+
+    Primeros Comandos CRUD : C(reate)R(read)
+
+        -> db.collection.insertOne(doc): Agrega un nuevo documento a la coleccion seleccionada.
+
+        ->  db.collection.insertMany(docs): Agrega múltiples documentos a la coleccion seleccionada ( dado un arreglo de documentos)
+
+        -> db.collection.findOne(opt): Busca un elemento que cumpla con los criterios de Búsqueda (opt), devuelve el primer documento que cumpla con dicho criterio.
+
+        -> db.collection.find(opt): Devuelve todos los documentos que cumplan con dichos criterio.
+
+        -> db.collection.find(opt).pretty(): Añadido para hacer mas presentables los resultados de un find.
+
+    Conteo de Datos: 
+
+        Los comandos de conteo son para determinar el numero de documetos en una coleccion:
+
+            -> db.collection.estimateDocumentCount(): Cuenta el estimado más próximo al número de documentos según su metadata.
+
+            -> db.collection.countDocuments(opt): Cuenta los documentos que cumplan con el criterio definido en las opciones (opt)
+
+    opt (options): agregando opciones
+        En muchas consultas encontramos el elemento (opt), esto hace referencia a las opciones de filtros de búsqueda que podemos realizar al momento de buscar un valor, la sintaxis elementar de un opt es:
+            -> {propiedad: valor}  => EJ : db.user.find({gender:"M"})
+
+        
+    

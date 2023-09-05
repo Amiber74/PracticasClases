@@ -1,0 +1,53 @@
+Busqueda Avanzada:
+        -> db.coll.distinct( val ): devuleve un array con los distintos valores que toma un determinado campo en los documentos de la coleccion.
+
+        -> db.coll.find( { doc.subdoc:value } ): Se utiliza para filtrar subdocumentos.
+
+        -> db.coll.find( { name: /^Max$/i } ): filtra utilizando expresiones regulares  (REGEX101.COM)
+
+    Proyecciones, Sorts, Skips, Limits:
+
+        Proyecciones:
+            En ocasiones no necestamos toda la informacion de un documento. Si tenemos un docuemnto con 100 propiedades, podemos definir solo las propiedades que queremos obtener.
+            
+            Una proyeccion se incluey al momento de hacer una busqueda ( siempre com segundo argumento) y es el equivalente a decirle a la base de datos "solo necesito esto"
+
+            Asi podriamos decir que db.users.find( {},{name:1} ), lo cual indica que el campo 'name' es el unico que necesitamos obtener por parte del documento. ahorrandonos espacio y complejidad en el resultado. 
+            {
+                1 seria un valor booleano, indicando que solo traiga los valores de name.
+                En cambio si usamos 0, indicamos que traiga todo menos el valor de name 
+            }
+
+        Sort:
+            Permite ordenar la informacion. Se define con 1 o -1 y sirve para hacer el ordenamiento de forma ascendente o descendente.
+                -> db.collection.fin().sort( {val_A:1, val_B:-1} )
+
+            Se puede agregar varios valores de ordenamiento, en el caso de que dos documentos tengan el mismo valor, podamos ordenarlos bajo otro criterio.
+                Ejemplo cuando en una lista de alumnos tienen el mismo nombre, entonces se les ordenara por edad.
+
+
+        Skip y Limit:
+            Skip:
+                Sirve para omitir el numero de documentos indicados, saltear x numeros de documentos
+                
+                Podemos usarlo cuando hagamos paginaciones, cuando necesitemos ignorar un valor que es innecesario, etc.
+
+                -> .skip(offset)
+
+            Limit:
+                Limita el numero de documentos devueltos. De manera que podamos hacer diferentes niveles de paginacion (Tu pagina puede devolver 5 elementos por pagina, o bien 100, tu decides)
+
+                -> .limit(num)
+
+            Conclusion:
+                Skip sirve para omitir los documentos del primero en adelante, en cambio Limit sirve para omitir los documentos del ultimo parqa atras  
+
+
+
+
+
+
+
+
+
+

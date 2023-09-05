@@ -1,0 +1,25 @@
+Tipos de clientes de BD: 
+    Cada vez que accedemos a una base de datos para realizar cualquier operacion CRUD, nosotros nose convertimos en clientes de esa base de datos.
+
+    Podemo ser distintos tipos de clientes apra acceder a la misma base:
+        -> Cliente CLI
+        -> Cliente GUI
+        -> Cliente Web
+        -> Cliente app
+
+    Ya fuimos clientes CLI, vamos a visualizar brevemente los otros tipos de clientes 
+
+        -> Cliente GUI:
+            Cliente que conecta a la base de datos desde un programa grafico destinado a ello. El cliente GUI por excelencia para trabajar con MongoDB es MongoDB Compass.
+
+        -> Cliente App: 
+            Cliente que sera nuestro fuerte, puede acceder a la base de datos desde nuestra aplicacion, permite utilizar a partir de código, a partir de un contexto.
+
+            Una vez que se encuentra correctamente configurada la app, no dependeremos tanto de meter mano manualmente, pues nuestro programa sabra en qu e momento realizar las operaciones CRUD
+
+        -> Cliente Web:
+            Cuando conseguimos tener nuestra base de datos en la nube, podemos conectarnos a un servidor en la web para poder analizar los datos y realizar las operaciones desde cualquier computadora.
+
+            Es de los modelos más utilizados, debido a que no es necesario contar con una computadora especifica ( segun sean los permisos ). 
+
+            Cliente web por excelencia para MongoDB es Atlas, ademas de fungir como DBaaS

@@ -1,0 +1,32 @@
+Comandos de CRUD: U(pdate)D(elete)
+
+    U(pdate):
+
+        Las operaciones Update se pueden realizar de dos maneras:
+            -> Actualizar un documento, o actualizar multiples documentos.
+                db.collection.updateOne(query, update, option)
+                    -> Query: sirve para filtar que elemento actualizar ( usa los filtros iguales a find)
+                    -> Update: tiene sus propios operadores como $set, $unset, $inc, $rename, $mul, $min, $max.
+                    -> Option: opciones a tomar en cuenta para la actualizacion ( como upsert, que inserta el valor en caso de que el documento a actualizar ni siquiera exista)
+
+                db.collection.updateMany(query, update, option)
+                    Lo mismo pero para muchos documentos
+
+                -> db.coll.update( { "_id":1 }, { $set:{ 'year':2016, name: 'Max } } ) [Establece los valores]
+                -> db.coll.update( { "_id":1 }, { $unset: { 'year': 1 } } ) [Elimina los valores]
+                -> db.coll.update( { "_id":1 }, { $rename: { "year" : "date"} } ) [Renombra la key]
+                -> db.coll.update( { "_id":1 }, { $inc: { "year": 5} } ) [ Incrementa ]
+                -> db.coll.update( { "_id":1 }, { $mul: { price: NumberDecimal("1.25"), qty:2 } } )  [operacion matematica]
+                -> db.coll.update( { "_id":1 }, { $min: { "imdb": 5 } } ) [Minimos]
+                -> db.coll.update( { "_id":1 }, { $max: { "imdb": 8 } } ) [Maximos]
+                -> db.coll.update( { "_id":1 }, { $currentDate: { "lastModified": true } } ) [Coloca la modificacion bajo la key last Modified]
+                -> db.coll.update( { "_id":1 }, { $currentDate: { "lastModified": {$type: "timestamp" } } } ) 
+
+
+
+
+    D(elete): 
+        Nuestra ultima operacion es para eliminar datos, si bien hay muchas variantes de una elimnicaion, solo veremos las dos principales.
+            -> db.collection.deleteOne({key:val}): Elimina solo el primer valor que cumpla con los criterios, se usa principalmente para encontrar identificadores especificos. Se recomienda no utilizar si somos conscientes de que el valor a buscar no es repetitivo
+            
+            -> db.collection.delteMany({key:val}): Elimina todos los documentos que cumplan con el criterio, se usa cuando sabemos que mas de un valor va a contar con ese valor y necesitamos hacer una limpieza general. 

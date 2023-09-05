@@ -1,0 +1,20 @@
+Conectar nuestra aplicacion: mongoose
+
+    Mongoose:
+        -> Es un ODM (Object Document Mapping), el cual nos permitirá definir esquemas para poder gestionar colecciones y documentos entre una aplicacion de nodeJS y una base de datos en MongoDB.
+
+        -> Una vez que comprendemos que MongoDB permite gestionar documentos similar a un objeto. Además moongose nos permitira conectar con la base de datosgestionada desde Mongo Atlas, con el fin de poder mantener la gestion de la base de datos desde la nube.
+
+        Instalacion y configuracion:
+            1. Tener listo una estructura del servidor con express y router
+            2. Instalar Mongoose { npm install mongoose }
+            3. Archivo user.model.js:
+                -> Crearemos una carpeta 'models' donde crearemos nuestro primer modelo user. Utilizaremos mongoose para definir el esquema de nuestra base de datos.
+                -> Un esquema debe contener las propiedades y tipos de datos que apareceran en la base de datos.
+                -> Antes de hacer un esquema, debemos tener bien definido que propiedades debera tener para poder trabajar con el.
+
+        Conectar mongoose a nuestra base de Atlas:
+            1. En la pagina de Atlas hay un boton 'connect'
+            2. Selecionamos la opcion 'Connect your application'
+            3. Recibimos una liga para poder conectar.
+
