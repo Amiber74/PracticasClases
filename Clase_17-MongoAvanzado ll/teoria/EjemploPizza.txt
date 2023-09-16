@@ -1,0 +1,33 @@
+Ejemplo en Vivo: 
+    Si desea gestionar una base de datos para una pizzeria. Dado un conjunto de ordenes:
+        -> Definir las ventas totaltes de los diferentes sabores para las pizzas medianas
+
+    Hubo complicaciones con la carga pero se resolvio cargandolo directamente en la db 
+
+    Se verifico los datos en el trabajo sin usar mongo compass.
+
+    Primera Peticion: 
+        Definicion las ventas de los diferentes sabores de las pizzas medianas.
+        
+        -> El equipo de ventas corroboira que hay bajas en el numero depeticiones de pizzas medianas u necesitan confirmar el monto general que ha habido en las ordenes del tamaño "mediano" (esto debido a que fue el tamaño protagonico de su ultima campaña de marketing). 
+
+        -> Ahora toca analizar los sabores y corroborar cuales estan brindando una mayor rentabilidad, y cuales deberian salir o sustituirse por un nuevo sabor.
+
+        -> ¿Qué deberia hacer neustra aggregation?
+            Primero, una stage para filtrar las pizzas por su tamaño, ya que solo nos interesa la camapaña de pizzas medianas.
+
+            Segundo, agrupar las pizzas por sabor para corrorborar cuantos ejemplares se vendieron de dichos sabores.
+
+    Analisis del resultado: 
+        Una vez finzalizada nuestra primera aggregation, el resultado es:
+
+        Notamos como es posible realizar operaciones mas complejas que solo una busqueda con el uso de aggregations.
+
+        Una vez obteniuendo los resultados, el equipo de Marketing determinara cual es la mejor decision segun su contexto.
+
+    Nuestro Marketing lead desea unos cambios de ultimo momento:
+
+        Nuestro lider de camapaña necesita nuevos cambios en la forma de entregar nuestra informacion:
+            -> Primero, desea que los resultados se entreguen de mayor a menor por cantidad de ventas.
+            -> Segundo, desea que los resultados se almacenen en una nueva coleccion "reports" con el fin de poder consultar el reporte para analisis futuros.
+            

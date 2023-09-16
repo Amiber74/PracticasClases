@@ -1,0 +1,16 @@
+    EJEMPLO EN VIVO:
+        Una base de datos con 5000 user y buscar con y sin filtros.
+
+        El tiempo de busqueda general contra el tiempo de busqueda por filtro es de un milisegundo aproximadamente.
+
+        El ejemplo muestra 5mil documentos, que apsaria si tuvieramos 20, 50 o 100mil documentos? Los numeros se pueden disparar en cuanto a su tiempo de respuesta se refiera.
+        
+
+        Conclusion si activamos en models la opcion de "index:true", veremos que de 4 milisegundo se reduce a 1 o menos. Por ende podemos poner esta ocpion en los campos que pueden provocar lentitud en la busqeuda. 
+
+        IMPORTANTE 
+            -> Un indice no debe ser utilizado en todos los campos, solo debe ser utilizados en los campos que sepamos tienen repercusiones en nuestras busqeuda.
+            
+            -> Colocar un indice en cada campo de cada documento, signmifica alentar procesos de escritura en cada indser,. asi tambien como generar un almacenamiento adicional e innecesario en la base de datos.
+
+        

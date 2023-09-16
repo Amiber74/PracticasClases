@@ -1,0 +1,45 @@
+Aggregations:
+    Consiste en la relaizacion de multiples operaciones, generalmente sobre multiples documentos.
+    
+    Usos:
+        -> Agrupar documentos con abase en un criterio especifico.
+        -> Realizar alguna operacion sobre dichos documentos, con el fin de obtener un solo resultado.
+        -> Analizar cambios de informacion con el paso del tiempo.
+
+        Collection --> |$PROYECT| -> |$MATCH| -> |$GROUP| -> |$SORT| --> result
+
+    Funcionamiento:
+        Los aggregation pipelines consistiran en un paso de conjientos de pasos (stages), donde cada paso correspondera a una operacion a realizar.
+
+        Podemos definir tantas stages como necesitemos con el fin de llegar a los resultados esperados.
+
+        Los documentos resultantes de la stage que finalice, se utilizan como "input" de la siguiente stage, y asi sucesivamente hasta llegar al final.
+
+        Un ejemplo de un pipeline de aggregation puede ser:
+            1. Primero filtrar los documentos que tengan un valor x mayor a 20.
+            2. Luego ordenalos de mayor a menor. 
+            3. Luego en un nuevo campo devuelve el valor maximo.
+            4. Luego en un nuevo campo devuelve el valor minimo.
+            5. Luego en un nuevo campo devuelve la suma total de todos los documentos.
+
+    Principales stages disponibles en aggregation pipeline:
+        -> $count: Cuenta el numero de documentos disponibles que se encuentren en la stage.
+        -> $group: Permite agrupar los documentos disponilbles en nuevos grupos segun un criterio especificado. Cada grupo cuenta con un _id nuevo, ademas de los valores acumulados.
+        -> $limit: limita el numero de documentos que saldran de dicha stage.
+        -> $lookup: Permite realizar un "left join" (combinacion de campos), de una coleccion de las misma base de datos a los documentos de la stage. 
+        -> $set/ $addFields: Agregan una nueva propiedad a los documentos que se encuentran en dicha stage.
+        -> $skip: Devuelve solo los documentos que se encuentran despues del offset indicado.
+        -> $sort: Ordena los documentos de la stage actual.
+        -> $match: Devuelve solo los documentos que cumplan con un criterio de busqueda, podemos colocar filtros comunes aqui. 
+        -> $merge: escribe los resultadso del pipeline en una coleccion. Debe ser la ultima stage del pipeline para poder  funcionar
+
+
+    Ventajas de usar aggregation: 
+        Es que una vez que tengamos definida la estrucutra de nuestras primeras operaciones, si mas adelante nos piden hacer alguin cambio o que haga algunas operaciones extras, simplemente hay que meterlo al arreglo de stages que ya tenemos desarrollado.
+
+        En el ejemplo de la pizzeria usariamos 4 stages adicionales, segun lo solicitado:
+            -> $sort: Para poder ordenar los campos que tenemos actualmente.
+            -> $group: para poder agrupar ahora todos nuiestros resultados en un unico campo.
+            -> $project: Para poder crear un documetno nuevo a partir del arreglo de resultados de nuestra aggregation.
+            -> $merge: Para poder escribir este resultado en la coleccion nueva de "orders".
+

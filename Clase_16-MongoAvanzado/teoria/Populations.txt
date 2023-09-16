@@ -1,0 +1,82 @@
+Populations:
+    Obtener data dentro de la data?
+        -> Una Population implica obtener un documetno referenciado dentro de otro documento, con el fin de obtener ambos en una sola busqueda.
+        -> Consiste en almacenar el id de un documento, como propiedad de otro documento. A esto de le conoce como "referencia".
+        -> Populate hace referencia a "poblar" de un id a un documento completo. (referencia a la ploblacion humana)
+
+
+    Funcionamiento: 
+        1. Al insertar un documento de tipo usuario qeu adopta mascotas, este se crea un ObjectId:
+            {
+                name: Mauricio,
+                pets:[],
+                _id: ObjectId("aaaaa")
+            }
+
+        2. Supongamos que ahora creamos dos mascotas, las cuales tambien tendran sus ObjectId:
+            {
+                name: Orejitas,
+                _id:ObjectId("bbbbb")
+            },
+            {
+                name: Patitas,
+                _id:ObjectId("ccccc")
+            }
+
+        3. Ahora, si este usuario quisiera "adoptar" las ultimas dos mascotas, podriamos decir que estas mascotas deberian estar dentro del array "pets" del usuario. Pero NO agregamos todo el documento. solo el _id que usaremos como "referencia" del documento.
+        {
+            name: Mauricio,
+            pets:[ {pet:ObjectId("bbbbb")}, {pet:ObjectId("ccccc")} ],
+            _id: ObjectId("aaaaa")
+        }
+
+        4. La proxima vez que hagamos la bsuqeuda del usuario, podemos programarlo para que no solo obtenga al usuario, sino sus referencias de mascotas tambien.
+        El resultado final sera la combinacion del documento usuario mas los documentos correspondinetes a cada mascota.
+
+
+        Uso en Mongoose:
+
+            Condiseraciones antes de su uso:
+                -> populate es un metodo propio de Mongoose, por lo que tenemos que instalarlo.
+
+                -> Hay que tener siempre claro el nombre de la propiedad dentro del objeto, asi tmabien como la referencia de la coleccion, para poder un populate efectivo.
+
+                ->Recuerda no guardar directamente el valor a referencia en el _id, sino asignarle otro nombre 
+
+        Proceso:
+            1. Tener un entorno asincronico.
+            2. Definir el modelo student 
+            (
+                La estructura del campo courses indica que cada elemento que se ingrese al arreglo debe tener un campo "courses", el cual será un id que hará referencia a la coleccion courses.
+                Esta "ref es el que utilizamos para saber que haremos un populate a la coleccion indicada.    
+            )
+            3. Creando el primer documento en la coleccion students ( corroborar creacion en tu abse de datos)
+
+            4.Definir el modelo course 
+            
+            5. Creando el primer curso en la base.
+
+            6. Agregando el id del curos al arreglo de cursos del estudiante.
+
+            7. Volvemos a pedir al estudiante en la base de datos y obtenemos al estudiante con los curso sin populate.
+
+            8. Añadir a la query un populate  .populate('courses.course')
+
+            IMPORTANTE: 
+                Una population es un puente entre dos documentos como una relacion unidireccional.
+                Jamas hagas una population bidireccional, esto ocasionara que uno llame a otro, otro a uno, uno a otro, otro a uno.... etc.
+                Por ejemplo, Que pasaria si nuestro docuemnto de cursos tuviera referencia del estudiantes en su arreglo "students"
+
+        Middlewares para mongoose:
+            Como habras notado para poder "poblar" el resultado de la operacion find() del estudiantes y obtener lsocursos, fue necesario llamar a "populate" despues de la operacion 
+
+            Sin embargo, tener que colocar el populate puede resultar molesto si utilizamos constantemente el model de estudiante. 
+
+            Mongoose tiene la posibilidad d edefinir "Middlewares" para sus docuemtnos y modelos con el fin de automatizar operaciones que consideremos recurrentes.
+
+            En esta ocasion utilizaremos un middleware conocido como "pre".
+
+            PRE: 
+                Pre se ejecutar antes de finalizar el procesado y entrega de la operacion. Este es compatible con la operacion find que acostumbramos utilizar, y se entendera como ¿Que deseo que se haga con este documento antes de devolver el resultado de la busqueda?
+
+                En nuestro caso particular lo que buscamo es realizar una population antes de recibir el documento.

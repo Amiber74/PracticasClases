@@ -1,0 +1,7 @@
+Sistemas de paginacion de estudiantes:
+    Se creara una vist simple con handlebars donde se podran mostrar los estudiantes
+        -> Los estudinates seran mostrados en la vista "/students".
+        -> Debe existir un enlace "Anterior" para regresar a los estudiantes anteriores, siempre que haya una paginacion anterior.
+        -> Debe existir un enlace "Siguiente" para continuar con los estudiantes, siempre que haya una paginacion siguiente.
+        -> Debe indicarse la pagina actual.
+        -> Todo debe vivir en un servidor de express en el puerto 8080

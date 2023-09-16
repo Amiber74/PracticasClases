@@ -1,0 +1,42 @@
+Paginacion con Monoose: 
+    Cuando recien trabajhamo con nuestros primeros datos, es maravillosos ver como nuestras busquedas pueden devolvernos todos los datos que necesitemos.
+    
+    Sin embargo, esta "maravilla" comienza a converitrse un probelamn cuadno el numero de datos que tenemos incrementa considerablemente 
+
+    Recordemos que los datos que nosotros obtendremos, al final tenemos que enviarlos a traves del internet, para que el cliente la utilice.
+    
+    Que tan lento sera el proceso de enviar 5000 usuarios en una sola vuelta, y en 10 mil.
+
+    Paginacion como control de resultado: 
+        Aprender a pensar en paginas nos permitira segmentar los resulta<dos en pequeños trozos de informacion, brindandons al final una referencia de en que pagina estamos, cual es la pagina y cual es la siguiente.
+
+
+    MONGOOSE-PAGINATE-V2:
+
+        Es un plugin para mongoose que nos permitira realizar paginaciones eficientes para los modelos que nosotros especifiqu3emos.
+        Cuenta con una gran optimizacion y agregado de funcionalidades frente a su v2.
+
+        Instalarlo: 
+            npm install mongoose-paginate-v2
+
+        Nociones:
+            -> docs: Los documentos devueltos en la pagina.
+            -> totalDocs: Los docuemtnos totales de la consulta realizada.
+            -> limit: Limite de resultados por pagina.
+            -> page: Pagina actual en la que nos encontramos.
+            -> totalPages: Paginas totales que pueden ser solicitadas en la busqueda.
+            -> hasNextPage: Indica si es posible avanzar a una pagina siguiente.
+            -> nextPage: Pagina siguiente en la busqeuda.
+            -> hasPrevPage: Indica si es posible retroceder a una apgina anterior.
+            -> prevPage: Pagina anterior en la busqeuda.
+            -> PagingCounter: Numero de documento en relacion con la pagina actual.
+
+        Uso: 
+            Para poder usarlo debemos importarlo sobre el schema donde lo utilizaremos.
+
+            Antes de instanciar el modelo, colocamos un "plugin" de paginacion a nuestro Schema.
+
+            Luego de esto podemos usar el metodo paginate. El primer argumento es el filtro y el segundo son las opciones.
+
+            Ahjora en el campo docs obtendremos los resultados que solicitamos. Pero tambien tenemos toda la informacion deobre la paginacion realizada, y como podemos continuarla.
+

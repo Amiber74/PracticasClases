@@ -1,0 +1,29 @@
+Indexación:
+    -> Es un recurso usado por MONGOdb para poder hacer consultas mucho más rapidas.
+
+    -> Este nos permitira tener una referencia previa al momento de buscar un documento, con el fin de evitar recorrer toda la coleccion, documento por documento hasta encontrar dicho valor.
+
+    -> El indicce se asocia a un atributo del documento y permite que las busquedas se hagan desde puntos especificos, evirtando el recorrido completo de la coleccion.
+
+    Que pasaria si nuestro numero de datos en la base incrementara?? Afectaria en la busqueda?
+        Proveer un buen plan de indexacion evitara problemas de lentirud en las consultas u se considera una practica necesaria a nivel enterprise. Volverlo un ambito.
+
+
+    Funcionamiento Interno:
+        -> Cuando creamos un indice sobre el campo de un docuemnto, este campo es insertado en una 'cinta metrica' donde se colocar el valor indexado de manera ordenada (Asi es, al final, un indice es meramente un ordenamiento)
+    
+        -> Asi, al momento de realizar una busqueda por valores indexados, Mongo sera capaz de realizar una busqueda por B-tree. Esto es lo que permite que la busqueda de un campo indexado NO requiera de recorrer la coleccion completa.
+
+    Otro tipos:
+        -> Indices compuestos (compound): Se utiliza cuando requerimos mas de una indexacion y queremos definir el orden con el cual se realiza el ordenemaiento (ordenando con 1 para ascendente y -1 para descendente, igual que un sort:{campo:1, campo:-1 })
+
+        -> Indices de multiple llave (multikey): Se utiliza cuando requerimos hace runa indexacion de valores que se encuentran de manera interna en un array.
+
+        -> Indices de texto (text): Se utiliza para poder basarse en busquedas de palabras "especificas" con el fin de poder tomar referencia de un texto a partir de dichas palabras.
+
+        -> indice geoespacial (geospatial): Se utiliza para almacenar data geoespacial de dos coordenadas, utiliza una esfera 2d para poder trabajar con los datos.
+
+        1_ mail unico entre todo el schema
+        2_ buyerId - product 
+        3_ address postalCode
+        4_ Autor Title rating
