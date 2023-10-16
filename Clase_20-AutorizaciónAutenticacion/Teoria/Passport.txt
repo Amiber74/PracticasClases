@@ -1,0 +1,57 @@
+Que es Passport?
+    Generador de estrategias de autenticacion y autorizacion, para mantener un codigo limpio, estructurado y altamente configurable. 
+    Podemos utilizar y configurar multiples estrategias de autenticacion y autorizacion con passport. En esta ocasion crearemos una estrategia local.
+
+    Reestructurando sistema de resgitro y login con Passport-local:
+        -> Passport se intala en dos modulos: 
+            primero el core de Passport y segundo el modulo es la estrategia a utilizar.
+        
+            npm install passport passport-local
+
+
+    Nociones importantes:
+        Passport local siempre requerira dos cosas: username y password. Si pasport no encuentra de estos dos elementos, devolvera un error y no permitira proceder con la estrategia.
+
+        Podemos cambiar el campo "username" para que tome el campo que nosotros queramos tomar com idenficador, en  este caso a nosotoros no nos inteeresa nuestro username, realmente nos interesa el correo electronico, asi que podemos alterarlo con {usernameFile:'valor}.
+
+        Passport utiliza un callback "done", el cual se resuelve de la siguiente manera: 
+            -> El primer parametro de donde es el error, si pasamos done(null) indicamos que no hay error.
+            -> El segundo parametro debe ser el usuario generado, por lo tanto, para devolver un usuario hacemos done(null, user).
+            -> si pasamos done (null, false) indicamos que no hay error, pero el usuario no estara disponible
+
+        Cada estrategia que queramos configurar en passport es un middleware por si solo, asi que utilizaremos el elemento passport.use() para configurar diferentes middleware/estrategias  
+
+
+
+    Router necesitara cambios para permitir passport: 
+        Para una implementacion simple de passport, una estrategia suele tener dos rutas:
+            -> Ruta del proceso principal
+            -> Ruta de "escape" por si el proceso falla en algun punto.
+        Ejemplo:
+            -> router.post('/register', passport.authenticate('register', {failureRedirect: '/failregister'} ), async (req,res)=>{
+                res.send({status:'success', message:'user Registered'})
+            })
+            -> router.get('failregister', async (req, res)=>{
+                console.log('failed Strategy')
+                res.send({erros: 'failed'})
+            })
+
+    Serializar y deserializar: 
+        -> Para restaurar el estado de autenticacion a trabes de solicitudes HTTPm Passport necestia Serializar usuarios y desetializarlos fuera de la sesion.
+        Esto se hace de modo que cada solicitud subsiguiente no contenga las credenciales del usuario anterior.
+        
+        -> Se suele implementar propocionando el ID de usuario al serializar y consulktando el registro dfe usuario por ID de la base de datos al deserializar.
+
+        -> Los metodos que propociona passport para esto son serializeUser y desrializeUser.
+
+        passport.serializeUser( (user, done) => {
+            done(null, user.id)
+        })
+
+        passport deserializeUser ( async(id, done)=> {
+            let user = await userService.findById(id)
+            done(null, user)
+        })
+
+        -> Serializador y deserializador gener, se aplican en todas las estrategias y se setea por fuera.
+        

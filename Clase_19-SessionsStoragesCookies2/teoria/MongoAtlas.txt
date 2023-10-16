@@ -1,0 +1,17 @@
+Session Storage con Mongo Atlas: 
+
+    Siguiente paso para guardar sesiones:
+        Seguro ya lo habias pensado, si FileSystem terminara generando conflictos, ¿podria solucionarse con bases de datos, como hicimos con nuestros carritos y productos? La respuesta es si.
+
+        Session puede tranajar de la mano con MongoDB y MongoAtlas para poder guardar una sesion en una base de datos, esto permitira que las sesiones tengan una gestion mas limpia, ademas de poder contar con autoeliminacion de sesiones expiradas.
+
+    Utilizacion: 
+        -> Lo primero sera contar con nuestra connection string.
+        -> npm install connect-mongo
+        -> Configurar un nuevo modulo
+        -> Dentro de app.use(session({})), usaremos :
+            store:MongoStore.create({
+                mongoUrl: 'mongodb+srv://rojasfacundo2002:<password>@cluster0.esne0dt.mongodb.net/?retryWrites=true&w=majority',
+                mongoOptions: {userNewUrlParser, useUnifiedTopology}
+                ttl
+            })

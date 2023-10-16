@@ -1,0 +1,20 @@
+Autenticación: 
+    Ya habiamos trabajado con este concepto en el cual el cliente debe primero identificarse para poder intentar acceder a un recurso.
+    La autenticación es el primer paso dentro de la vida de una sesion del cliente y el servidor.
+
+    Para que un cliente pueda autenticarsem debe existit un registro prvio almacenado en algún lado. El cliente envia un identificador (con el email) y el servidor lo buscara en su base de datos para saber si existe previamente. En caso de que sim podra responder con sus credenciales completas (no sensibles).
+
+    En caso de que u ncleinte intente autenticarse antes de haber genmerado un registro, el servidor no lo encontrara en la base y no habra credenciales por devolverle.
+
+    Metodos: 
+        ->  Usuario y contraseña: metodo tradicional, mas usado donde el usuario inrgesa username o emaiul y password para autenticarse.
+
+        -> Sin contraseña (passwordless): consiste en que, cada vez que quereamos iniciar sesion a un recurso, se nos enviara al email un enlace que nos permitira acceder sin necesidad de contraseña.
+
+        -> Por redes sociales: varias aplicxaiones nos dan como opcion iniciar sesion directamente con alguna red social. La ventaja principal es que se usan directamente los datos de esa cuenta social para hacer el inicio de sesion. 
+
+        -> Datos biometricos: Autentica  usuarios mediante huellas dactilares.
+
+        -> JWT (JSON Web Token): Este metodo open source permite la transmision segura de datos entre las distintas partes. Comunmente se utilzia para la autorizacion a partir de una par de claves que conteine una clave privada y una publica.
+
+        -> OAuth 2.0: permite que mediante una API, el usuario se autentique y acceda a los recursos  del sistema que necesita.

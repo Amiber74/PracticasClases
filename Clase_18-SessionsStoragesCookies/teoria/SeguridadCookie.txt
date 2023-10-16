@@ -1,0 +1,23 @@
+Agregando seguridad a la cookie: Signed Cookies
+
+    Que es firmar una cookie?
+        -> Como la cookies son almacenada en el navegador, pueden llegar a ser alteradas mucho mas faculmente que si esta viviera en el servidor. Es por ello que necesitamos agregar un factor de seguridad para que la cookie se "invalide" en caso de que haya sido modificada.
+
+        ->  No podemos evitar que alguien externo altere la cookie, pero si podemos indicar que en caso de que la cookie ya no sea exactamente identica a la genereada, entonces la pase como cookie invalida.
+
+
+    Podemos utilizar el mismo cookieParser:
+        -> No es necesario instalar algo nueco, solo configuraremos la inicializacion del cookieParser. Esto se conseguira agregando un secret al momento de la inicializacion.
+        
+        -> Si inicializamos: 
+            app.use(cookieParser("CodertS3cR3tC0D3"))
+
+        -> Podremos firmara las cookies para mayor seguridad a partir de la logica planteada, solo basta colocar un {signed:true} en la definicion de la cookie: 
+            app.get('/setSignedCookie', (req,res)=>{
+                res.cookie('SignedCookie', 'Esta es una cookie muy poderosa', {maxAge:10000, signed:true}).send('Cookie')
+            })
+  
+    Signed cookies:
+        -> Para poder acceder a una signed cookie, esta ya no estaran disponibles en req.cookiesm sino en req.signedCookies, por lo que hay que pensar bien que cookies corresponderan a que lado.
+
+        -> Si tratamos de acceder a una cookie firmada que fue alterada por alguna razon, al querer acceder a ella solo se devolvera un false

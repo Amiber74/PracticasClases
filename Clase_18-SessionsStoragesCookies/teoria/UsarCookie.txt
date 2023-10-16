@@ -1,0 +1,33 @@
+Usar cookies: SET, GET, CLEAR
+
+    Setear una cookie: 
+        -> Una cookie debe setearse dentro del flujo de una vida de una peticion, por lo tanto, llamaremos un endpoint llamado '/setCookie' donde utilizaremos el objeto res, para poder asignar una cookie al cliente en su navegador. 
+
+        -> Para leer la cookie seteada, usaremos el objeto req, en el endpoint '/getCookie', ya que como cliente tiene la cookie en su navegador, debera enviarla por dicho objeto 
+
+        -> Ademas, llamaremos tambien un endpoint '/deleteCookie' donde utilizaremos el objeto res, para poder limpiar la cookie asignada al cliente en su navegador.
+
+    Utilizar el objeto res para enviar la cookie al cliente: 
+        app.get('/setCookie', (req, res)=>{
+            //res.cookie(nombreCookie, valorCookie, {MaxAge:Tiempo_Vida_Cookie_Milisegundo})
+            res.cookie('CoderCookie', 'Esto es una cookie muy poderosa', {maxAge:10000}).send('Cookie')
+        })  
+
+        Si no se especifica el parametro maxAge la cookie exisitira hasta que se borre, es decir no tiene tiempo de vida definido
+
+
+        app.get('/getCookie', (req,res) => {
+            //Obtenemos las req.cookies y las enviamos al cliente para corroborar que hay almacenado
+            res.send(req.cookies)
+        })
+
+        En este caso enviamos todas las cookies al cliente. Si queremos acceder a una cokie especifica, la podemos llamar como req.cookie.nombreCookie
+
+
+        
+        app.get('/deleteCookie', (req, res)=>{
+            //Eliminamos la cookie y enviamos un mensaje de confirmacion
+            res.clearCookie('CoderCookie').send('Cookie Removed')
+        })
+
+        Si la cookie ya fue borrada por expiracion, no hay problema. El clearCookie procede a ignorarlo

@@ -1,0 +1,28 @@
+Memory Storage:
+    El almacenamiento de una sesion por memory storage es exactamente igual a la persisitencia en memoria que trabajamos la clase pasada. Es un alamcenamiento muy peligroso, ya que si el servidor muere o se reinicia, la sesion morira con el y no habra forma de recuperarlo.
+
+    Como solucionar el probelma de memory storage?
+        -> Una vez entendido el caracter de resgo de almacenar una sesion en memoria, nos surge la duda: ¿ Como podriamos hacer persistir estas sesiones para evitar cualquier tema en el reincio o caida repentina de un servidor?
+
+        -> Seguramente tiene clara la idea, ya que lo hiciste con tus productos y rtu carrito: Vamos a utilziar File Storage, es decir , guardar nuestra sesion en un archivo, para poder consultar las sessions de un lado diferente a la memoria del servidor
+
+    File storage:
+        Al igual que las primeras clases del curso, el file storage permitira dar una persistencia de archivos a las sesiones que trabjam,os, esto hara que el servidor pueda tomarlas de algun lado en caso de que algo inesperado llegara a pasar (un reincio o una caida)
+
+        Asi, los usuarios pueden seguir haciendo consultas con sus sessionid, y el servidor podra consultarlas del archivo persiste ene ste.
+        Es un recurso simple y tiene sus defectos, sin embargo, es unasolucion sencilla para resolver el asunto de sesiones, sin tener que ocupar recursos de terceros 
+
+        Utilizacion de File Storage:
+            -> npm install session-file-store
+            -> Posteriormente iniciamos el fileStore, usando los tres argumentos principales: 
+                path: ubicacion donde se almacenaran las sesiones
+                ttl: Tiempo de expiracion en milisegundos
+                retires: tiempo deveces que el servidor leera el archivo, cantidad de re intentos
+
+        {
+            Consideraciones:
+                Utilizar File Storage podemos notar que:
+                    -> Aun cuando reiniciamos el servidor, la sesion persistira en el tiempo indicado 
+                    -> Cuando llegue a expirar una sesion, el servidor generara un nuevo archivo con la consulta, indicando el nuevo sessionId.
+                    -> Los archivos viejos no se limpian automaticamente, quedan en un cementerio de registros, lo cual puede generar complicaciones futuras
+        }

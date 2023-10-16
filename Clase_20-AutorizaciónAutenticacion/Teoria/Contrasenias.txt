@@ -1,0 +1,20 @@
+Protegiendo las contraseñas : bcrypt
+
+    Si revisamos la base de datos que utilizamos la clase anterior:
+        -> Notaras que los usuarios se guardarin exactamente como se envio la informacion: incluyendo el password
+        -> Por proteccion de datoss debemos guardar un password de manera que pueda ser visualizado, ni siquiera por nosotros mismos.
+        -> Para ello, antes de guardar el password, se debe procesar este con una operacion conocida com hash
+
+    Usando bcrypt para poder hacer un hasheo:
+        -> Debemos reconocer que no somos expertos en seguridad informatica, por lo que trabajar conasuntos tan interiorizados a la seguridad nos puede complicar las cosas.
+
+        -> Para esto, bcrypt se encargara de realziar la operacion de aseguracion de nuestras contraseñas de una forma facil y segura.
+        
+        -> Para usarlo se quiere instalarlo con npm: npm install bcrypt
+
+    A consisderar:
+        Si una contraseña hasheada no puede ser revertida ni siquiera por nosotros mismos ¿Como sabremos is el cliente se loguea correctamente?
+        
+            -> No podemos hacer una comparacion tan cruda como [body.password === user.password]
+            -> bcrypt tiene un proceso de comparacion de passwords a partor de su funcion compare.
+            -> Asi, podremos saber si el cliente metio su password correctamente, sin tener que daber de cual se trata.

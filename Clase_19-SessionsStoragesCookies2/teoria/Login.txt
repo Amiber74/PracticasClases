@@ -1,0 +1,26 @@
+Hands on Lab: 
+    En esta instancia de la calse repasaremos algunos de los conceptos vistos con una aplicacion
+        ¿De que manera?
+        El profesor demostrara como hacerlo y tu lo puedes ir replicando en tu computador. Si srugen dudas las puedces comparti para resolverlas en conjunto de la mano de los tutores.
+
+    Primer Login por formulario:
+        ¿Como lo hacemos? Se levantara un sistema de login completo utilizando router, handlebars, base de datos para usuarios y sesiones
+
+        -> Se debera contar con una estrucutra de router par sessions en /api/sessions/ el cual contara con metodos para registrar a un usuario y para su respectivo login.
+        
+        -> Se debera contar ademas con router de vistas en la ruta base / para llevar el formulario de login, de registro y de perfil.
+
+        -> El formulario de registro inserta en la base de datos el usuario. El cual deber contar con :
+            {
+                first_name, 
+                last_name,
+                age,
+                email,
+                password
+            }
+
+        -> Se debe contar con el formulario de login el cual corroborar que el usuario exista en la base, y ademas genere un objeto user en req.session, indicando que puede urilizar la pagina.
+
+        -> Agregar validadciones a las rutas de vistas para que, si aun no estoy logueado, no pueda entrar a ver mi perfil, y si ya estoy logueado, no pueda volver a loguearme o registrarme.
+
+        -> En la vista de perfil, se deben arrojar los datos no sensibles del usuario que se haya logueado.

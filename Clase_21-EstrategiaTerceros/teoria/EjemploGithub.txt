@@ -1,0 +1,39 @@
+Nociones importante:
+    -> Debes contar con una aplicacion privada dentro de dicho sitio web (ya sea facebook, twitter, github, etc)
+
+    -> Este sitio nos solicitara una URL de Callback, Muy importante: este callback debe coincidir con el callback del router. Por cada estrategia, tu router tendra dos rutas: 
+        Ruta inicial: Manda a llmar el middleware de passport y activa la redireccion.
+        Ruta callback: donde llega el dato de usuario final otorgado por Passport
+
+    -> Seleciona los datos que necesitas para recrear el usuario: Unsitio web externo no almacena los datos igual que tu. Puede que no encuentres todos los datos que requiere el modelo en la base  de datos.
+
+    -> Si el perfil del usuario esta configurado como privado, no obtendremos informacion y no podremos proceder por dicho metodo. Ocurre en facebook, github, etc.
+
+    -> Si presentas dificultades en ver tu perfil de Github en el codigo al momento de correr el codigo, cambia tu cuenta a publica
+
+    Lo primero: Localizar como ser parte de la aplicacion
+        -> Si ya tiene una cuneta de Github, bastara con:
+            .Ir a la seccion de Configuracion
+
+            .Ir a configuracion para desarrolladores: Apareceran las aplicaciones que hemos creado y podremos proceder a crear nuestra app
+
+        -> Creamos una nueva aplicacion. Github permitria conectar los datos de Github
+
+        -> Configuracion de aplicacion 
+            Recuerda tener el nombre del callback URL.
+            Configurar los permisos, profile solo ser leer y escribir
+
+        -> Ten en claro tus datos importantes
+            Ya configurada tu aplicacion, debes tener muy claros: AppId, ClñienteID, Client secret
+
+Configurar el servidor a trabajar: 
+    -> Una autenticacion por tereceros esta hecha para utilizarse com un bvoron de acceso rapido para un cliente, por lo tanto, levantaremos un servidor de express sencillo utilizando nuestro motor de plantillas.
+
+    -> La arquitectura sera exactamente la misma. Ademas, tendremos que contar con las dependencias mostradas a continuacion: express, express-handlebars, express-session, mongoose, passport, passport-github2
+
+    Creamos nuestro passport.Configuracion:
+        Se creara uin archivo passport.config.js en la carpeta config de nuestro proyecto:
+            -> Importaremos el core de passsport
+            -> Importaremos la estrategia a utilizar (en este caso la de Github)
+            -> Importaremos el servicio de Usuarios que hemos utilizado para mongo.
+            -> Crearemos y exportaremos nuestra funcion de inicializacion, con su serializador y deserializador

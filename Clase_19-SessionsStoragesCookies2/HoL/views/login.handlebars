@@ -1,0 +1,24 @@
+<h1>Hands On Lab</h1>
+
+<form method="post" action="/api/users/login">
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+
+    <button type="submit">Login</button>
+</form>
+
+{{#if loginFailed}}
+    <script type="text/javascript"> 
+        alert('login Failed')
+    </script>
+{{/if}}
+
+{{#if registerSuccess}}
+    <script type="text/javascript"> 
+        alert('Register Success!')
+    </script>
+{{/if}}

@@ -1,0 +1,33 @@
+Cookies: 
+    Necesidad de saber informacion del cliente
+    -> Cuando desarrollamos un sitio web, tenemos que contemplar que la forma de interactuar de un cliente suele ser diferente, entonces es importante tener algun recurso para saber informacion sobre ciertos detalles de infomracion y comportamiento de un cliente, para que el servidor pueda usar eso a su favor. 
+
+    -> ¿Comó podemos seguir un rastro de los clientes de nuestro sitio web y poder obtener un poco más de informacion de contacto y/o de comportamiento sobre los clientes que nos visitan? Rta: Cookies
+
+    Que es una cookie?
+        -> Una cookie es una pequeñisimo archivo de texto donde podemos almacenar informacion dentro del navegador, de manera que pueda viajar entre las peticiones y sirva como un ligero contenedor de informacion necesaria para poder procesar ciertas peticiones.
+
+    Algunos de los datos que se sueln guardar en una cookie son: 
+        Nombre de usuario
+
+        IDs de sesiones (que abarcaremos mas adelante)
+
+        Preferencia de navegacion para tu pagina 
+
+    IMPORTANTE{ 
+        Las cookies viven en el navegador, por lo que son facilmente accesibles por multiples elementos externos.
+
+        Por ningun motivo guardamos informacion sensible en una cookie. Nunca guardamos informacion de metodos de pago, contraseñas, ni cualquier dato que pudiera comprometer la seguridad 
+    }
+
+    Caracteristicas:
+        -> A las cookies se les puede configurar un tiempo de vida. Una vez finalizado el mismo, la cookie se elimina del navegador.
+        -> Al almacenarse del lado del cliente, el espacio con el que se cuenta es limitado, por lo que se recomienda elegir de forma adecuada lo que se vaya a guardar como cookie.
+        -> Podemos asignarles claves secretas para poder aumentar la seguridad.
+        -> Viven en el navegador, asi que no guardamos datos sensibles
+
+
+    Usar Cookies: 
+        Instalar express y el modulo de cookie-parser
+        Posteriormente, siguiendo la estrucutra de antesriores proyectos, configuramos nuestro servidor. Usando el middleware con app.use
+     

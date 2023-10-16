@@ -1,0 +1,29 @@
+<h1>External Login</h1>
+
+<form action="/api/sessions/login" method="post">
+    <label for="email"> Email</label>
+    <input type="text" name="email" id="email">
+    
+    <label for="Password">Password</label>
+    <input type="text" name="Password" id="Password">
+
+    <button type="submit">login</button>
+</form>
+
+<span>
+    <a href="/api/sessions/github"> <button>Entrar con Github</button> </a>
+</span>
+
+<span> <a href="/register" target="_self"> Registrar </a> </span>
+
+{{#if LoginFailed}}
+    <script>
+        alert('Login Failed')
+    </script>
+{{/if}}
+
+{{#if registerSuccess}}
+    <script>
+        alert('Register success')
+    </script>
+{{/if}}

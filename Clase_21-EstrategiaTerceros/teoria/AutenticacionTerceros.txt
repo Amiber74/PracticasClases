@@ -1,0 +1,22 @@
+Registro: Un bloqueo importante
+    Los sitios web han tenido que enfrentarse a una forma mucha más rapida de navegacion de los usuarios.
+    Cuando un sitio solicita "registrarse", plantea un bloqueo al usuario, quien debe decidir si realiza el registro o deja el sitio web ¿Que tan imprescindivle es tu sitio web, oara que el usuario tenga que tomarse la molestia de un registro?
+
+    Agilidad gana en el mercado:
+        Estrategia: apoyarnos en plataformas " de mayor calibre, que sabemos que el usuario ya utiliza"
+
+        Autenticar por teceros es "pedir datos" de una aplicacion donde el usuario ya esta registrado y utilizar donde el usuario ya esta registrado utilizar los datos publicos para crear otro en nuestra base.
+        El usuario entonces podra acceder al sitio web de manera rapida, segura y sin tener que llenar un formulario que no esta interesado en llenar.
+
+    Como hacerlo?
+        Para pedir prestados datos a lka aplcicacion hay quye ser parte de la aplicacion es decir tenemos que formar parte de su red interna de desarrolllo.
+
+        Cada sistio es diferente, algunos pueden darte libertad con solo crear una cuenta de desarrollo. Otros solicitan que expliques tu intencion, e incluso pueden evaluarte y decidir no permitirte acceso.
+
+        Importante:
+            Utilizar un sitio excterno requyiere que conozcamos correctamente sus congiguraciones. Tomate tu tiempo para enteder a fondo cada una de las documentaciones a utilizar
+
+    Pasos: 
+        1. Me registro como desarrollador de app del sitio y creo una aplicacion interna.
+        2. Configuro el servidor donde utilizare dicha aplicacion.
+        3. Configuro un callback utilizable para mi servidor

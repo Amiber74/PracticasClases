@@ -1,0 +1,18 @@
+Que es JWT? Json Web Token
+    Json Web Token es una implemntacino sin estado para poder mantener el ciclo de vida de la sesion de un usuario, sin el almacenamiento que este implica.
+
+    Funciona de una  anera diferente en session:
+        -> El servidor generara un toje con la informacion del usuario y la enviara al navegador.
+        -> El navegador (front) almacenara dicho token y procedera a enciarlo  en cada request por medio de los headers.
+        -> El servidor recibe las peticiones, busca el token de jwt en los headers. Si lo encuentra, podra proceder, si no, entonces requerira autenticacion nuevamente
+
+    Escalabilidad:
+        La necesidad de almacenar las sesiones de lado del servidor o de una base de datos genera conflictos: 
+            -> almacenamiento innecesario: Almacenar por mules, cientos de mieles, o millones de usuarios, puede ser problematio a nuvel almacenamiento.
+            -> Trafico saturado: Al vivir en una base de datos, session debe conectar con ella simempre que haya que consultar una sesion. Puede implicar detalles de rendimiento o requerir particiones de mas
+
+    Delega la respondabilidad a cada cliente: 
+        Para aligertar el peso de la operacion, el servidor puede otorgar el token de acceso al cleinte y este almacenarlo dentro del navegador en una cookie.
+        Asi el cliente tiene la responsabilidad de enviar sus credenciales con los datos de la sesion a manera de stateless. El servidor sol onecesita descifrar el token para poder acceder a las credencuales del usuario. Esto le permite al servidor ser mas agil.
+
+        1:28:37

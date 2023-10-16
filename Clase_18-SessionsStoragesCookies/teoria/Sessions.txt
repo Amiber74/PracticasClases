@@ -1,0 +1,66 @@
+Dando identidad al cliente: 
+    Retomemos un concepto interesante: la conexion sin estado
+        -> Como sabemos, una de las caracteristicas de nuestra API REST es la conexion sin estado, recordamos que esto significa que el servidor revibe una peticion del cliente y devuelve una respuesta... asi, sin contexto previo.
+        -> El cliente no sabe de donde obtiene la informacion qeu esta solicitando y al servidor no le interesa que ahata el cliente con la informacion que acaba de entregar.
+
+    Entonces, ¿como el servidor sabe del usuario al hacer una peticion?
+        -> Esto seguramente nos despierta la incognita: 
+            ¿Cómo en un sitio web sabe quien soy?
+            ¿Cómo se gestionaria todo el flujo de una compra si mi servidor trabaja sin estado?
+
+        -> Para resolver estas situaciones, el servidor debe tomar siempre la identidad del cliente que esta haciendo la peticion. Es decir el cliente alimenta al servidor con cada peticion con la informacion que necesita procesar, El servidor no almacena nada para sí
+
+        -> Actualmente, el cliente debe enviarnos dicha informacion desde queries, params, body y cookies. Todo esto enviado desde front. ¿Y si delegamos algo mas de responsabilidad al back? Vamos a manejar un sistemas de sesiones
+
+    Usuario Identificate: 
+        El sistema de sesiones permitira que el servidor tenga almacenada informacion referente al cliente, con el fin de que   este pueda mantenerse identificado al momento de hacer las peticiones.
+
+        Finalmente romperemos el anonimato, una vez que el cliente pase por un proceso de login, podemos procesar esa informacion para mantener reconodio al cliente y poder brindarle respuestas particulares acorde con su rol en la pagina.
+
+    Session como modulo de node: 
+        Session permitira conseguir este almacenamiento de informacion de cliente. Este podremos utilizarlo a traves del elemento req.session 
+        
+        Caracteristicas:
+            -> La informacion que se quiera guardar en session se almacena del lado del servidor.
+            -> Del lado del cliente, se crea un identificador unico para poder acceder a esa informacion desde el navegador. 
+            -> Los datos almacenados en session se borran al cerra la ventana del navegador.
+            -> Se utiliza principalmente para guardar los datos de usuario al inciar sesion.
+
+    Usando Session
+        -> npm install express-session
+        -> Inicializamos el servidor agregando sesiones
+        -> Colocamos session como middleware para nuestro servidor de express
+        -> app.use(session({
+                secret:'secreteCoder'
+                /*
+                    Resave permite mantener la sesion activa en caso de que la sesion se mantenga inactiva. Si se deja en false, la sesion morira en caso de que exista cierto tiempo inactva
+                */
+                resave:true,
+                /*
+                    saveUninitialized permite guardar cualquier sesion aun cuando el objeto de sesion no tenga nada por contener. Si se deja en false, la sesion no se guardara si el objeto de sesion esta vacio al final de la consulta
+                */
+                saveUninitialized:true
+        }))
+
+    Levantando la session en el endpoint:
+        -> En el endpoint '/session' Inicializamremos la sesion. Si no existe el counter lo incializar aen 1 y  si existe lo incrementara para llevar un conteo de visitas.
+
+        -> Para eliminar datos de session, se utilizara el parametro request y el metodo destroy. Como parametro se pasa un callback
+
+        -> Login con session, para inciar sesion se verifica que los datos ingresados por el usuario sean los correctos. Si lo es, se guarda en session los datos de este usuario. Ademas, se puede crear la variable admin, tambien en session, con el valor de true, lo que indica que el usuario logueado es un administrador.
+
+        -> middleware de autenticacion, mediante estos middleware se puede limitar el acceso a determinadas rutas a aquellos usuarios que sean administradores ( o, por ejemplo, otras a cualquier usuario logueado). Si coincide el usuario guardado en session y ademas es admin, entonces sigue la ruta, sino devuelve error.
+        Ej:
+            function auth (req, res, next){
+                if(req.session?.user== 'pepe' && req.session?.admin) {
+                    return next()
+                }
+                return res.status(401).send('error de autenticacion')
+            }
+        Aplicando el middleware:
+            app.get('/privado', auth(), (req,res)=>{
+                res.send('Te logueaste')
+            })
+
+        -> Logout con session: Para cerrar sesion, solo basta con aplicar el metodo destroy de session.
+            Al borrar los datos almacenados, ya no queda registro de que el usuario haya inciado sesion. Y en este caso, ya no van a ser accesibles las rutas que tengan el auth middleware

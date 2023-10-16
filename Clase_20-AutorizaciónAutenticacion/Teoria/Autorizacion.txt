@@ -1,0 +1,32 @@
+Definiendo el alcance de cada usuario:
+    La autorizacion es el proceso por el cual el servidor decide si, a pesar de las credenciales que tienes, tienes permitido acceder e un recurso o no. Es decirm que autorizar no hace referencia a que el servidor no sepa quien eres.
+
+    Debemos tener conjuntos de servicios jerarquizados para:
+        -> Usuarios comunes
+        -> Usuarios premium (Si trabajamos con un sistema de jerarquias)
+        -> Administrador
+    O pór ejemplo:
+        -> Un empleado
+        -> Un jefe 
+        -> Un administrador
+
+{
+    Importante:
+    Al ser procesos diferentes, no olvidemos que deben tener un codigo de status diferentes tambien:
+        -> Para pocesos fallidos de autenticacion: 401
+        -> Pra usuarios rechazados por querer acceder a un recurso no autorizado: 403
+
+    Los status no son intercambiables. Nunca los uses a la ligera.
+}
+
+
+Tres posibles escenarios:
+
+    1. El cliente quiere acceder a un recurso sin credenciales:
+        El sercidor lo recxhazara con status 401 = Unaythorized Obligandolo a primero autenticarse.
+
+    2. El cliente quiere acceder a un recurso con credenciales de una jerarquia no autorizada:
+        El servidor lo rechazara con status 403 = Forbidden Indicando que, si quiere acceder al recurso, necesitara credenciales con un rol superior.
+
+    3. El cliente quiere acceder a un recurso con credencuiales de una jerarquia autorizada:
+        El servidor corrobora que las credenciales son valida y entreha el recurso solicitado.
